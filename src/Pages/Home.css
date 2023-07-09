@@ -49,17 +49,17 @@ height: 100px ;
 
     }
     .imagesIcon {
-        left: -33px;
+        left: -40px;
         position: relative;
     }
 
    .home_header_right{
     min-width: unset;
-    gap: 27px;
+    gap: 40px;
    }
    .appsIcon{
     position: relative;
-    right: -13px;
+    right: -25px;
     display: flex;
     align-items: center;
    }
