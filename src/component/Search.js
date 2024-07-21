@@ -18,8 +18,12 @@ function Search({ hideButtons=false }) {
       type:actionTypes.SET_SEARCH_TERM,
       term :input
     })
+window.localStorage.setItem("Input", String(input));
     navigate("/search");
   };
+
+   const inputValue = window.localStorage.getItem("Input");
+    
   return (
     <form className="search">
       <div className="search_input">
@@ -28,11 +32,13 @@ function Search({ hideButtons=false }) {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          placeholder={inputValue}
         />
-        
+        {console.log(input)}
+
         <MicIcon />
       </div>
-      
+
       {!hideButtons ? (
         <div className="search_buttons">
           <Button type="submit" onClick={search} variant="outlined">
@@ -42,10 +48,17 @@ function Search({ hideButtons=false }) {
         </div>
       ) : (
         <div className="search_buttons">
-          <Button type="submit" onClick={search} variant="outlined"  className="search_buttons_hidden">
+          <Button
+            type="submit"
+            onClick={search}
+            variant="outlined"
+            className="search_buttons_hidden"
+          >
             Google Search
           </Button>
-          <Button variant="outlined" className="search_buttons_hidden">I'm Feeling Lucky</Button>
+          <Button variant="outlined" className="search_buttons_hidden">
+            I'm Feeling Lucky
+          </Button>
         </div>
       )}
     </form>

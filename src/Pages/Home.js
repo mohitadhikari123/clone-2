@@ -6,6 +6,7 @@ import Search from "../component/Search";
 import { Link } from "react-router-dom";
 
 function Home() {
+  window.localStorage.removeItem("Input");
   return (
     <>
       <div className="home_header">
