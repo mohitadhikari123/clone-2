@@ -1,22 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Result.css";
 import { useStateValue } from "../StateProvider/StateProvider";
 import useGoogleSearch from "../useGoogleSearch";
 import { Link } from "react-router-dom";
-import Search, { search } from "../component/Search";
 import SearchIcon from "@mui/icons-material/Search";
 import DescriptionIcon from "@mui/icons-material/Description";
 import ImageIcon from "@mui/icons-material/Image";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import RoomIcon from "@mui/icons-material/Room";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-
-function Result() {
-
+import Search from "../component/Search";
+function Images() {
   const [{ term = "tesla" }, dispatch] = useStateValue();
   //Live API Call
-  const {data}=useGoogleSearch(term);
-//   const data = Response;
+  const { data } = useGoogleSearch(term);
+  //   const data = Response;
 
   return (
     <>
@@ -72,13 +70,8 @@ function Result() {
 
         {term && (
           <div className="result_searchPage">
-            <p className="result_searchPageCount">
-              About {data?.searchInformation.formattedTotalResults} results in (
-              {data?.searchInformation.formattedSearchTime} seconds) for {term}
-            </p>
             {data?.items.map((item) => (
               <div className="searchPage_result">
-                <div className="result_container">
                   {
                     <img
                       src={
@@ -86,18 +79,10 @@ function Result() {
                         item.pagemap?.cse_image[0]?.src
                       }
                       alt=""
-                      className="searchPage_resultImage"
+                      className="resultImage"
                     />
                   }
-                  <div className="result_link">
-                    <a className="searchPage_resultTitle" href={item.link}>
-                      {item.title}
-                    </a>
-                    <a href={item.link}>{item.displayLink}</a>
-                  </div>
                 </div>
-                <p className="searchPage_resultSnippet"> {item.snippet}</p>
-              </div>
             ))}
           </div>
         )}
@@ -106,4 +91,4 @@ function Result() {
   );
 }
 
-export default Result;
+export default Images;

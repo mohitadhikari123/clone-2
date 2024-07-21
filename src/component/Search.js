@@ -51,5 +51,5 @@ function Search({ hideButtons=false }) {
     </form>
   );
 }
-
+export const {search} = Search;
 export default Search;
