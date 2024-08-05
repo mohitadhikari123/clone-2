@@ -26,6 +26,7 @@
     align-items: center;
     position: relative;
     color: gray;
+  margin-right:15px;
 }
 .result_optionRight,.result_optionLeft{
     display: flex;
@@ -40,7 +41,7 @@
     gap: 25px;
 }
 .result_optionLeft{
-    gap: 30px;
+/*     gap: 30px; */
 }
 .searchPage_result{
     margin: 30px 0;
@@ -116,7 +117,7 @@ font-weight: 500px;
         flex-wrap: wrap;
     }
     .result_optionLeft {
-    gap: 15px;
+/*     gap: 15px; */
     }
     .result_option svg{
         display: none;
