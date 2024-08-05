@@ -101,11 +101,13 @@ font-weight: 500px;
         max-width: unset;
     }
     .result_logo{
-        margin-left: 90px;
+        margin-left: unset;
+        margin-right: unset;
     }
     .result_header{
         flex-direction: column;
         padding: 12px;
+        align-items: center;
     }
     .result_option{
         left: 0px;
