@@ -53,6 +53,7 @@
     margin-top: 20px;
 /*     margin-left: 130px; */
 /*     margin-bottom: 100px; */
+ padding-left: 45px;
 }
 .result_searchPageCount{
     color: #70757a;
@@ -99,6 +100,7 @@ font-weight: 500px;
         margin-left: 12px !important;
         min-width: unset;
         max-width: unset;
+     padding-left: unset;
     }
     .result_logo{
         margin-left: unset;
