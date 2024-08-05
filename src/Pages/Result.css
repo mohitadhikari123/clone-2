@@ -94,7 +94,7 @@ font-weight: 500px;
     align-items: center;
 }
 /* responsive */
-@media(max-width:540px){
+@media(max-width:710px){
     .result_searchPage {
         margin-left: 12px !important;
         min-width: unset;
