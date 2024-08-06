@@ -19,7 +19,7 @@ function Search({ hideButtons = false }) {
       term: input,
     });
     window.localStorage.setItem("Input", String(input));
-    navigate("/search");
+    navigate("/news");
   };
 
   const inputValue = window.localStorage.getItem("Input");
