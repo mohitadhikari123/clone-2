@@ -14,12 +14,13 @@ function Result() {
   return (
     <>
       <div className="result">
-        <Navbar/>
-        {term && (
+        <Navbar />
+        {inputValue && (
           <div className="result_searchPage">
             <p className="result_searchPageCount">
-              About {data?.searchInformation?.formattedTotalResults} results in (
-              {data?.searchInformation?.formattedSearchTime} seconds) for {term}
+              About {data?.searchInformation?.formattedTotalResults} results in
+              ({data?.searchInformation?.formattedSearchTime} seconds) for{" "}
+              {term}
             </p>
             {data?.items.map((item) => (
               <div className="searchPage_result">

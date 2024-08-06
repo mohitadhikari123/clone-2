@@ -5,16 +5,15 @@ import { NEWS_API_KEY } from "../keys";
 import Navbar from "../component/Navbar";
 const today = new Date();
 const yesterday = new Date(today);
-yesterday.setDate(today.getDate() - 1);
+yesterday.setDate(today.getDate() - 5);
 
 const formatDate = (date) => date.toISOString().split("T")[0];
-
 async function getData(query) {
 
   const res = await fetch(
-    `https://newsapi.org/v2/everything?q=${query}&language=en&sortBy=popularity&from=${formatDate(yesterday)}&to=${formatDate(yesterday)}&apiKey=${NEWS_API_KEY}`
+    `https://api.apilayer.com/world_news/search-news?text=${query}&earliest-publish-date=${formatDate(yesterday)}&language=en&apikey=${NEWS_API_KEY}`
   );
-
+ console.log(res);
   return res.json();
 }
 
@@ -47,7 +46,7 @@ const News = () => {
       <Navbar />
       <div className={styles.home_page_container}>
         <div className={styles.news_cards}>
-          {data?.articles?.map((curElem, index) => (
+          {data?.news?.map((curElem, index) => (
             <Card key={`${curElem.url}-${index}`} {...curElem} />
           ))}
         </div>

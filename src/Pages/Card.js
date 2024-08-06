@@ -5,27 +5,35 @@ export default function Card({
   image,
   title,
   url,
-  urlToImage,
-  publishedAt,
-  description,
-  source,
+  publish_date,
+  summary = "",
+  author = "",
 }) {
-  return urlToImage ? (
+  const finalSummary =
+    summary.substring(0, 130) + (summary.length > 130 ? "..." : "");
+
+  return image && summary && title? (
     <div className={styles.card_container}>
       <a href={url}>
         <div className={styles.card_image}>
-          {urlToImage && (
-            <img src={urlToImage} width={486} height={243} alt="" />
+          {image && (
+            <img
+              src={image}
+              width={486}
+              height={243}
+              alt={title || "News Image"}
+            />
           )}
         </div>
         <div className={styles.news_text_container}>
           <div className={styles.title}>
             <span>{title}</span>
           </div>
-          <div className={styles.desc}>{description}</div>
+          <div className={styles.desc}>{finalSummary}</div>
           <div className={styles.channel_publish}>
-            <div className={styles.channel}>Channel : {source?.name}</div>
-            <div className={styles.publish}>Publish Date : {publishedAt}</div>
+            <div className={styles.channel}>Authors: {author || "Unknown"}</div>
+            <div className={styles.publish}>Publish Date: {publish_date || "Unknown"}
+            </div>
           </div>
         </div>
       </a>

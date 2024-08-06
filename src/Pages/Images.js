@@ -5,8 +5,8 @@ import useGoogleSearch from "../useGoogleSearch";
 import Navbar from "../component/Navbar";
 function Images() {
   const [{ term = "tesla" }, dispatch] = useStateValue();
-  //Live API Call
-  const { data } = useGoogleSearch(term);
+ const inputValue = window.localStorage.getItem("Input");
+ const { data } = useGoogleSearch(inputValue);
   //   const data = Response;
 
   return (
