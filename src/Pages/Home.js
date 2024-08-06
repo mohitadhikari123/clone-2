@@ -11,12 +11,12 @@ function Home() {
     <>
       <div className="home_header">
         <div className="home_header_left">
-          <Link to={"/about"}>About</Link>
-          <Link to={"/store"}>Store</Link>
+          <Link to={"/"}>About</Link>
+          <Link to={"/"}>Store</Link>
         </div>
         <div className="home_header_right">
-          <Link to={"/gmail"}>Gmail</Link>
-         <div className="imagesIcon"> <Link to={"/images"}>Images</Link></div>
+          <Link to={"/"}>Gmail</Link>
+         <div className="imagesIcon"> <Link to={"/"}>Images</Link></div>
           <div className="appsIcon"><AppsIcon  /></div>
           <AccountCircleIcon />
         </div>

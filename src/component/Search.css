@@ -47,3 +47,6 @@
 .search_buttons_hidden{
     display: none !important;
 }
+.pointerCursor{
+    cursor: pointer;
+}
