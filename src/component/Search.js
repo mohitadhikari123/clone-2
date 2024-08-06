@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Search.css";
 import MicIcon from "@mui/icons-material/Mic";
 import SearchIcon from "@mui/icons-material/Search";
@@ -18,13 +18,16 @@ function Search({ hideButtons = false }) {
       type: actionTypes.SET_SEARCH_TERM,
       term: input,
     });
-    window.localStorage.setItem("Input", String(input));
-    navigate("/search");
+
+     window.localStorage.setItem("Input", String(input));
+     navigate("/news");
+
   };
 
   const inputValue = window.localStorage.getItem("Input");
 
   const startConverting = () => {
+    
     if ("webkitSpeechRecognition" in window) {
       const speechRecognizer = new window.webkitSpeechRecognition();
       speechRecognizer.continuous = false;
@@ -40,20 +43,23 @@ function Search({ hideButtons = false }) {
           let transcript = event.results[i][0].transcript;
           if (event.results[i].isFinal) {
             finalTranscripts += transcript;
-            console.log("finalTranscripts : ", finalTranscripts);
+            // console.log("finalTranscripts : ", finalTranscripts);
           } else {
             interimTranscripts += transcript;
-            console.log("interimTranscripts : ", interimTranscripts);
+            // console.log("interimTranscripts : ", interimTranscripts);
           }
         }
 
         // Update input state with the final transcripts
         setInput(finalTranscripts + interimTranscripts);
-        setTimeout(() => {
-          search();
-        }, 2000);
+       setTimeout(() => {
+         const inputElement = document.querySelector('input[type="text"]');
+         if (inputElement) {
+           inputElement.focus();
+         }
+       }, 0);
       };
-
+      
       speechRecognizer.onerror = (event) => {
         console.error("Speech recognition error", event);
       };
@@ -62,6 +68,7 @@ function Search({ hideButtons = false }) {
         "Your browser is not supported. Please download Google Chrome or update your Google Chrome!"
       );
     }
+    
   };
 
   return (
@@ -74,8 +81,8 @@ function Search({ hideButtons = false }) {
           onChange={(e) => setInput(e.target.value)}
           placeholder={inputValue || "Search"}
         />
-        {console.log(input)}
-        <div className="pointerCursor" onClick={startConverting}>
+        {/* {console.log(input)} */}
+        <div className="pointerCursor" onClick={startConverting }>
           <MicIcon />
         </div>
       </div>
