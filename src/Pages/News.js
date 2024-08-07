@@ -13,7 +13,7 @@ async function getData(query) {
   const res = await fetch(
     `https://api.apilayer.com/world_news/search-news?text=${query}&earliest-publish-date=${formatDate(yesterday)}&language=en&apikey=${NEWS_API_KEY}`
   );
- console.log(res);
+
   return res.json();
 }
 
@@ -59,5 +59,5 @@ const News = () => {
     </div>
   );
 };
-
-export default News;
+export {getData};
+export default News ;

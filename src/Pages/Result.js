@@ -22,14 +22,14 @@ function Result() {
               ({data?.searchInformation?.formattedSearchTime} seconds) for{" "}
               {term}
             </p>
-            {data?.items.map((item) => (
-              <div className="searchPage_result">
+            {data?.items.map((item, index) => (
+              <div className="searchPage_result" key={item.id || index}>
                 <div className="result_container">
                   {
                     <img
                       src={
-                        item.pagemap?.cse_image?.length > 0 &&
-                        item.pagemap?.cse_image[0]?.src
+                        item.pagemap?.cse_image?.length > 0 ?
+                        item.pagemap?.cse_image[0]?.src : undefined
                       }
                       alt=""
                       className="searchPage_resultImage"
