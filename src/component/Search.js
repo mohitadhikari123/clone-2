@@ -20,7 +20,7 @@ function Search({ hideButtons = false }) {
     });
 
      window.localStorage.setItem("Input", String(input));
-     navigate("/news");
+     navigate("/search");
 
   };
 
